@@ -110,13 +110,13 @@
 		var newCell  = newRow.insertCell(0);
 		var newText  = document.createTextNode(text);
 		newCell.appendChild(newText);
-		r = r - (x * 0.25);
+		res = x * 0.25;
 		text = res;
 		var newCell  = newRow.insertCell(1);
 		var newText  = document.createTextNode(text);
 		newCell.appendChild(newText);
-		res = x - (x * 0.05);
-		text = res;
+		r = r - (x * 0.25);
+		text = r;
 		var newCell  = newRow.insertCell(2);
 		var newText  = document.createTextNode(text);
 		newCell.appendChild(newText);
