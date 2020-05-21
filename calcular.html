@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculo de Viajes</title>
+	<style>
+		<div>
+			font-family: Arial, sans-serif;
+            font-size: 35px;
+		</div>
+        table {
+            border: 2px solid black;
+            border-collapse: collapse;
+            width: 50%;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: center;
+        }
+
+        th {
+            background-color: lightgray;
+        }
+	</style>
+</head>
+<body>
+	<h1>Calcular Rubros</h1>  
+	<p>Por favor, introduzca el precio del viaje:</p>  
+	<input id="num" autofocus=""><br>
+	<button type="button" onclick="myFunction()">Sumar</button>
+	<p id="Total"></p>
+	<p id="TC"></p>
+	<p id="Impuestos"></p>
+	<p id="Comision"></p>
+	<br>
+	<table id="tabla">
+		<tr>
+			<th>Porcentaje</th>
+			<th>Cantidad</th>
+			<th>Restante</th>
+		</tr>
+	</table>
+	<script>  
+	function myFunction() {  
+		var x,res,text;  
+		x = parseFloat(document.getElementById("num").value);
+		if (isNaN(x)) {  
+		text = "Es necesarios introducir una cantidad";  
+		}
+		else{  
+		//si no ponemos parseFloat concatenaría x con y  
+		text = x;
+		document.getElementById("Total").innerHTML = "El precio del viaje es " + text;
+		res = x - (x * 0.05);
+		text = res;
+	   	document.getElementById("TC").innerHTML = "Descontando el cobro de tarjet de credito " + text;
+	   	res = res - (x * 0.17);
+		text = res;
+	   	document.getElementById("Impuestos").innerHTML = "Descontando el cobro de impuertos " + text;
+	   	res = res - (x * 0.25);
+		text = res;
+	   	document.getElementById("Comision").innerHTML = "Descontando la comsion, el agente se queda con " + text;
+	   	fillTable();
+		}
+	}
+	function fillTable()
+	{
+		var x,res,text, r;
+		x = parseFloat(document.getElementById("num").value);
+	   	var tableRef = document.getElementById('tabla').getElementsByTagName('tbody')[0];
+		var newRow   = tableRef.insertRow(tableRef.rows.length);
+
+		//5%
+		text = "5%";
+		var newCell  = newRow.insertCell(0);
+		var newText  = document.createTextNode(text);
+		newCell.appendChild(newText);
+		res = x * 0.05;
+		text = res;
+		var newCell  = newRow.insertCell(1);
+		var newText  = document.createTextNode(text);
+		newCell.appendChild(newText);
+		r = x - (x * 0.05);
+		text = r;
+		var newCell  = newRow.insertCell(2);
+		var newText  = document.createTextNode(text);
+		newCell.appendChild(newText);
+
+		//17%
+		var newRow   = tableRef.insertRow(tableRef.rows.length);
+		text = "17%";
+		var newCell  = newRow.insertCell(0);
+		var newText  = document.createTextNode(text);
+		newCell.appendChild(newText);
+		res = x * 0.17;
+		text = res;
+		var newCell  = newRow.insertCell(1);
+		var newText  = document.createTextNode(text);
+		newCell.appendChild(newText);
+		r = r - (x * 0.17);
+		text = r;
+		var newCell  = newRow.insertCell(2);
+		var newText  = document.createTextNode(text);
+		newCell.appendChild(newText);
+
+		//25%
+		var newRow   = tableRef.insertRow(tableRef.rows.length);
+		text = "25%";
+		var newCell  = newRow.insertCell(0);
+		var newText  = document.createTextNode(text);
+		newCell.appendChild(newText);
+		r = r - (x * 0.25);
+		text = res;
+		var newCell  = newRow.insertCell(1);
+		var newText  = document.createTextNode(text);
+		newCell.appendChild(newText);
+		res = x - (x * 0.05);
+		text = res;
+		var newCell  = newRow.insertCell(2);
+		var newText  = document.createTextNode(text);
+		newCell.appendChild(newText);
+	}  
+	 </script>
+</body>
+</html>
