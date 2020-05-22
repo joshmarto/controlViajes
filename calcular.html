@@ -50,18 +50,19 @@
 		}
 		else{  
 		//si no ponemos parseFloat concatenaría x con y  
-		text = x;
+		text = x.toFixed(2);
 		document.getElementById("Total").innerHTML = "El precio del viaje es " + text;
 		res = x - (x * 0.05);
-		text = res;
+		text = res.toFixed(2);
 	   	document.getElementById("TC").innerHTML = "Descontando el cobro de tarjet de credito " + text;
 	   	res = res - (x * 0.17);
-		text = res;
+		text = res.toFixed(2);
 	   	document.getElementById("Impuestos").innerHTML = "Descontando el cobro de impuertos " + text;
 	   	res = res - (x * 0.25);
-		text = res;
+		text = res.toFixed(2);
 	   	document.getElementById("Comision").innerHTML = "Descontando la comsion, el agente se queda con " + text;
 	   	fillTable();
+	   	document.getElementById("num").autofocus();
 		}
 	}
 	function fillTable()
@@ -77,12 +78,12 @@
 		var newText  = document.createTextNode(text);
 		newCell.appendChild(newText);
 		res = x * 0.05;
-		text = res;
+		text = res.toFixed(2);
 		var newCell  = newRow.insertCell(1);
 		var newText  = document.createTextNode(text);
 		newCell.appendChild(newText);
 		r = x - (x * 0.05);
-		text = r;
+		text = r.toFixed(2);
 		var newCell  = newRow.insertCell(2);
 		var newText  = document.createTextNode(text);
 		newCell.appendChild(newText);
@@ -94,12 +95,12 @@
 		var newText  = document.createTextNode(text);
 		newCell.appendChild(newText);
 		res = x * 0.17;
-		text = res;
+		text = res.toFixed(2);
 		var newCell  = newRow.insertCell(1);
 		var newText  = document.createTextNode(text);
 		newCell.appendChild(newText);
 		r = r - (x * 0.17);
-		text = r;
+		text = r.toFixed(2);
 		var newCell  = newRow.insertCell(2);
 		var newText  = document.createTextNode(text);
 		newCell.appendChild(newText);
@@ -111,12 +112,12 @@
 		var newText  = document.createTextNode(text);
 		newCell.appendChild(newText);
 		res = x * 0.25;
-		text = res;
+		text = res.toFixed(2);
 		var newCell  = newRow.insertCell(1);
 		var newText  = document.createTextNode(text);
 		newCell.appendChild(newText);
 		r = r - (x * 0.25);
-		text = r;
+		text = r.toFixed(2);
 		var newCell  = newRow.insertCell(2);
 		var newText  = document.createTextNode(text);
 		newCell.appendChild(newText);
