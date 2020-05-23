@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<style>
+		@media {
+			body {
+				background-color: lightblue;
+			}
+		}
+	</style>
+</head>
+<body>
+	<h1>Bienvenido!</h1>
+	<form name="form" action="https://joshmarto.github.io/controlViajes/calcular.html">
+		<h3>Introduzca sus datos</h3>
+		<input type="text" name="username">
+		<input type="password" name="password">
+		<button type="button" onclick="ingresar()">Ingresar</button>
+	</form>
+	<script>
+		function ingresar() {
+			var username = document.getElementByName("username").value
+			var password = document.getElementByName("password").value
+			if (username=="usuario" && password=="autorizado"){
+				document.form.submit();
+			}
+		}
+	</script>
+</body>
+</html>
